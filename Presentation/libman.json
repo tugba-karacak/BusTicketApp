@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "twitter-bootstrap@4.6.0",
+      "destination": "wwwroot/twitter-bootstrap/"
+    },
+    {
+      "library": "popper.js@2.6.0",
+      "destination": "wwwroot/popper.js/"
+    }
+  ]
+}

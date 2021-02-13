@@ -1,0 +1,62 @@
+﻿
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-5">
+                <input type="datetime-local" id="time" class="form-control" />
+            </div>
+            <div class="col-5">
+                <select class="form-control" asp-items="@ViewBag.LocationList" id="location">
+                </select>
+            </div>
+            <div class="col-2">
+                <button type="button" id="test" class="btn btn-primary">Sefer Ara</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="content">
+</div>
+
+@section javascript{
+    <script>
+
+        $("#test").click(function () {
+            let time = $("#time").val();
+            let locationId = $("#location").val();
+            console.log(time, locationId);
+            $.ajax({
+                url: "/voyage/getvoyages?time=" + time + "&locationId=" + locationId,
+                type: "GET",
+                beforeSend: function () {
+                    //$("#loadingScreen").show();
+                },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).done((data) => {
+                let html = `
+ `;
+                jQuery.each(data, function (i, val) {
+                    html += `<div class="card w-100 my-3" >
+  <div class="card-body">
+  <h5 class="card-title">${val.bus.name}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Nereden : ${val.location.source} Nereye : ${val.location.target} </h6>
+    <p class="card-text">Boş koltuk sayısı : ${20 - Number(val.freeSeatCount)}</p>
+    <a href="/Ticket/Index/${val.id}" class="card-link">Satın Al</a>
+  </div>
+</div> 
+`;
+                });
+
+                $("#content").html(html);
+            }).fail((err) => {
+                console.log(err);
+            })
+        })
+    </script>
+
+}
+
+
+

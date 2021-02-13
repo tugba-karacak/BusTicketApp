@@ -1,0 +1,37 @@
+﻿@model UserRegisterModel
+
+
+<form asp-action="Register" method="post" class="mt-4 w-75 mx-3 p-5 mb-2 mx-auto shadow">
+    <h3 class="text-center">Kayıt Ol</h3>
+
+    <div class="form-group">
+        <label> Ad :  <span class="text-danger">*</span></label> <span asp-validation-for="Name" class="text-danger"></span>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label> Soyad :  <span class="text-danger">*</span></label> <span asp-validation-for="Surname" class="text-danger"></span>
+        <input type="text" asp-for="Surname" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label> Email :  <span class="text-danger">*</span></label> <span asp-validation-for="Email" class="text-danger"></span>
+        <input type="email" asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label> Parola : <span class="text-danger">*</span></label> <span asp-validation-for="Password" class="text-danger"></span>
+        <input type="password" asp-for="Password" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label> Parola  Tekrar: <span class="text-danger">*</span></label> <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        <input type="password" asp-for="ConfirmPassword" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+    </div>
+    <div asp-validation-summary="ModelOnly" class="text-danger">
+
+    </div>
+</form>

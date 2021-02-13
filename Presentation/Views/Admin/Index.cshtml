@@ -1,0 +1,28 @@
+﻿@model List<TicketListModel>
+
+<table class="table table-bordered table-striped table-sm">
+  <thead>
+      <tr>
+          <th>Yolcu Adı</th>
+          <th>Yolcu Soyadı</th>
+          <th>Koltuk Numarası</th>
+          <th>Aldığı Fiyat</th>
+          <th></th>
+
+      </tr>
+  </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
+                <td>@item.SeatNumber</td>
+                <td>@item.Price</td>
+                <td>
+                    <a asp-action="CancelTicket" asp-route-id="@item.Id" onclick="return confirm('İptal etmek istediğinizden emin misiniz?');">İptal Et</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

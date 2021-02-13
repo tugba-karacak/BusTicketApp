@@ -1,0 +1,30 @@
+﻿
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>BusTicketApp</title>
+    <link href="~/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    @RenderSection("header", false)
+</head>
+<body>
+
+    @await Component.InvokeAsync("Navbar") 
+
+
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+
+    <script src="~/popper.js/umd/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    @RenderSection("javascript", false)
+</body>
+</html>

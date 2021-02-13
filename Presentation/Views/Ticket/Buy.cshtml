@@ -1,0 +1,28 @@
+﻿@model BuyTicketModel
+
+<form asp-action="Buy" method="post" class="mt-4 w-75 mx-3 p-5 mb-2 mx-auto shadow">
+    <h3 class="text-center">Satın Al</h3>
+
+    <div class="form-group">
+        <label> Ad :  <span class="text-danger">*</span></label> <span asp-validation-for="Name" class="text-danger"></span>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label> Soyad :  <span class="text-danger">*</span></label> <span asp-validation-for="Surname" class="text-danger"></span>
+        <input type="text" asp-for="Surname" class="form-control" />
+    </div>
+
+
+    <input type="hidden" asp-for="Price" class="form-control" />
+    <input type="hidden" asp-for="SeatNumber" class="form-control" />
+    <input type="hidden" asp-for="VoyageId" class="form-control" />
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Satın Al</button>
+    </div>
+    <div asp-validation-summary="ModelOnly" class="text-danger">
+
+    </div>
+</form>
